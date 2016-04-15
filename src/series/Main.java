@@ -11,6 +11,8 @@ public class Main {
         int[] arr1 = { 2, 5, 8, 9, 10, 11, 12, 15 };
         int[] arr2 = { 2, 6 };
 
+        // test
+
         removeIndexes(arr1, 0, arr1.length-1, arr2, 0, arr2.length-1);
 
         //int res = countEquals(arr1, 0, arr1.length-1, arr2, 0, arr2.length-1);
