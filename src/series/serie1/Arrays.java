@@ -59,15 +59,22 @@ public class Arrays {
         return count;
     }*/
 
-    public static int countEquals(int[] v1, int l1, int r1, int[] v2, int l2, int r2) {
+    public static int countEqualsv1(int[] v1, int l1, int r1, int[] v2, int l2, int r2) {
         int count = 0;
 
-        for (int i = l1, j = l2; i < r1 || j < r2;){
-            if (v1[i++] == v2[j]) {
+        for (int i =l1,j=l2; i <= r1 && j<=r2; ){
+            if (v1[i] < v2[j]) ++i;
+            else if (v1[i] == v2[j]){
                 ++count;
-            } else {
+                ++i;
+                 ++j;}
+            else if (v1[i] > v2[j]) ++j;
+
+            /*else if (v1[i] == v2[j]) {
+                ++count;
+                ++i;
                 ++j;
-            }
+            }*/
         }
         return count;
     }
@@ -85,10 +92,74 @@ public class Arrays {
     }
 
 
+    public static int countEquals(int[] v1, int l1, int r1, int[] v2, int l2, int r2) {
+        int mid = l2 + (r2 - l2) / 2;
+        int count = 0;
+
+        for (int i = l1;i<=r1;++i) {
+            if (v1[i] >= mid) {
+                for (int j = mid; j <=r2; ++j) {
+                    if (v1[i] == v2[j]) ++count;
+                }
+            }
+            else {
+                for (int j = l2; j < mid; ++j) {
+                    if (v1[i] == v2[j]) ++count;
+                }
+
+            }
+        }
+        return count;
+    }
+
 
     public static  int[] getTheKElementsNearestX(int[] v, int l, int r, int x, int k){
 
-        return null;
+        if(r<=k)return v;
+        if(k>r)return new int[0];
+
+        int []a=new int[k];
+
+        int ifrente=0,itras=0,t=0,s=0,f=0;
+
+
+        while(s<k){
+        for(int i=l=t=f;i<r;++i){
+
+            if(a[i]==x) {
+                if(t>l&&f<r) {
+                    itras = x - v[t - 1];
+                    ifrente = v[f + 1] - x;
+
+
+                    if (itras > ifrente) {
+                        a[s++] = ifrente;
+                        if (f < r)
+                            ++f;
+                    } else
+                        a[s++] = itras;
+                    if (t > l)
+                        ++t;
+                }
+                if(t<l&&f<r){
+                    a[s++] = ifrente;
+                    if (f < r)
+                        ++f;
+
+                }
+                if(t>l&&f<r){
+                    a[s++] = itras;
+                    if (t > l)
+                        ++t;
+                }
+            }
+            else{
+                ++f;++t;}
+            }
+
+        }
+
+        return a;
 
     }
 
