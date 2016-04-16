@@ -1,6 +1,7 @@
 package series.serie1;
 import static org.junit.Assert.*;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
 import org.junit.Test;
 import static series.serie1.Arrays.getTheKElementsNearestX;
 
@@ -35,7 +36,9 @@ public class GetTheKElementsNearestXTest {
         int[] result=getTheKElementsNearestX(array,0,10,3,3);
         int[] expected=new int[]{2,3,4};
         java.util.Arrays.sort(result);
+       // System.out.println(java.util.Arrays.toString(result));
         assertArrayEquals(expected,result);
+
     }
 
 
