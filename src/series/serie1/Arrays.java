@@ -74,12 +74,22 @@ public class Arrays {
                 ++count;
                 ++i;
                 ++j;
-            }*/
+            }
         }
         return count;
     }
 
 
+    public static String greaterCommonPrefix(String[] v, int l, int r, String word) {
+        if(v.length == 0) return null;
+        String output = "", strV = "";
+        for(int x = l; x <= r; ++x){ // cycle every word@v
+            if(v[x].length() == 0) continue;
+            strV = v[x];
+            if(strV.charAt(0) == word.charAt(0)) output = strV; // if found @start
+        }
+        return (output != "") ? output : strV;
+    }
     public static int countEquals(int[] v1, int l1, int r1, int[] v2, int l2, int r2) {
         int mid = l2 + (r2 - l2) / 2;
         int count = 0;
