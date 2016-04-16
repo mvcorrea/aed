@@ -74,7 +74,7 @@ public class Arrays {
                 ++count;
                 ++i;
                 ++j;
-            }
+            }*/
         }
         return count;
     }
@@ -90,6 +90,8 @@ public class Arrays {
         }
         return (output != "") ? output : strV;
     }
+
+
     public static int countEquals(int[] v1, int l1, int r1, int[] v2, int l2, int r2) {
         int mid = l2 + (r2 - l2) / 2;
         int count = 0;
@@ -107,22 +109,9 @@ public class Arrays {
 
             }
         }
-
-
-
-
         return count;
     }
 
-
-
-
-
-    public static String greaterCommonPrefix(String[] v, int l, int r, String word){
-
-        return null;
-
-    }
 
     public static  int[] getTheKElementsNearestX(int[] v, int l, int r, int x, int k){
 
