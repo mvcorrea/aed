@@ -45,14 +45,19 @@ public class Arrays {
     }
 
 
-    int count=0;
-    public static int countEquals(int[] v1, int l1, int r1, int[] v2, int l2, int r2){
-        for(int i=l1,int j=l2;i<r1||j<r2; ){
-            if(v1[i++]==v2[j]){
-                ++count;}
-            else{++j}
+
+    public static int countEquals(int[] v1, int l1, int r1, int[] v2, int l2, int r2) {
+        int count = 0;
+
+        for (int i = l1, j = l2; i < r1 || j < r2;){
+            if (v1[i++] == v2[j]) {
+                ++count;
+            } else {
+                ++j;
+            }
         }
         return count;
+    }
 
 
 
