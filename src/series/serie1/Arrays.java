@@ -73,16 +73,18 @@ public class Arrays {
     }
 
 
-
-
-
-
-
-    public static String greaterCommonPrefix(String[] v, int l, int r, String word){
-
-        return null;
-
+    public static String greaterCommonPrefix(String[] v, int l, int r, String word) {
+        if(v.length == 0) return null;
+        String output = "", strV = "";
+        for(int x = l; x <= r; ++x){ // cycle every word@v
+            if(v[x].length() == 0) continue;
+            strV = v[x];
+            if(strV.charAt(0) == word.charAt(0)) output = strV; // if found @start
+        }
+        return (output != "") ? output : strV;
     }
+
+
 
     public static  int[] getTheKElementsNearestX(int[] v, int l, int r, int x, int k){
 
