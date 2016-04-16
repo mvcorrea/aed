@@ -31,18 +31,32 @@ public class Arrays {
     */
 
     public static int removeIndexes(int[] v1, int l1, int r1, int[] v2, int l2, int r2) {
-
-        int idx = 0;
+        int lenV1 = r1 - l1 + 1;
         if(v1.length == 0) return 0;
+        if(v2.length == 0) return v1.length;
 
-        for(int i = v2[l2]; i <= v2[r2]; ++l2 ){
-            if(v2.length == l2) break;
-            v1[v2[l2]] = 0;
-            System.out.println(i+" "+l2+" "+v2[l2]);
-            System.out.println(java.util.Arrays.toString(v1));
+        for (int i = l2; i<=r2; ++i) {
+            if((v2[i] >= l1 && v2[i] <= r1)) {
+                --lenV1;
+            }
         }
-        return 0;
+
+        // only needed to show the array !!!
+        int[] out = new int[v1.length];
+        for(int x = l1, y = l2, z = 0; x <= r1; ++x){
+            if( v2[l2] != x ){
+                out[z++] = v1[x];
+            }else{
+                if( y < r2 ) y++;
+                continue;
+            }
+        }
+
+        //System.out.println(java.util.Arrays.toString(out));
+
+        return lenV1;
     }
+
 
 
      /*   public static int countEquals(int[] v1, int l1, int r1, int[] v2, int l2, int r2) {
