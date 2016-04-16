@@ -45,12 +45,19 @@ public class Arrays {
     }
 
 
+    int count=0;
+    public static int countEquals(int[] v1, int l1, int r1, int[] v2, int l2, int r2){
+        for(int i=l1,int j=l2;i<r1||j<r2; ){
+            if(v1[i++]==v2[j]){
+                ++count;}
+            else{++j}
+        }
+        return count;
 
 
 
 
-
-    public static int countEquals(int[] v1, int l1, int r1, int[] v2, int l2, int r2) {
+ /*   public static int countEquals(int[] v1, int l1, int r1, int[] v2, int l2, int r2) {
         int count = 0;
         while (l1 <= r1 && l2 <= r2) {
             if (v1[l1] > v2[l2]) l2++;
@@ -62,7 +69,7 @@ public class Arrays {
             }
         }
         return count;
-    }
+    }*/
 
 
     public static String greaterCommonPrefix(String[] v, int l, int r, String word){
