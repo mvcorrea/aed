@@ -113,18 +113,46 @@ public class Arrays {
     }
 
 
-    public static  int[] getTheKElementsNearestX(int[] v, int l, int r, int x, int k){
+    public static  int[] getTheKElementsNearestX(int[] v, int l, int r, int x, int k) {
 
-        if(r<=k)return v;
-        if(k>r)return new int[0];
+        if (r <= k) return v;
+        if (k > r || r < 0) return new int[0];
 
-        int []a=new int[k];
+        int[] a = new int[k];
+        int t=0, f=0, tras, frente, s = 0;
+        while (s < k) {
+            for (int i = l; i < r-1; ++i) {
 
-        int ifrente=0,itras=0,t=0,s=0,f=0;
+                if (v[i] == x) {
+                    if (i > l)
+                        t = i - 1;
+                    if (i <r)
+                        f = i + 1;
+                    frente = v[f] - x;
+                    tras = x - v[t];
+
+                    if (tras > frente) {
+                        a[s++] = frente;
+                        ++f;
+                    } else {
+                        a[s++] = tras;
+                        ++t;
+                    }
+                }
+
+            }
+            s=x;
+        }
+        return a;
+    }
+
+
+
+      /*int ifrente=0,itras=0,t=0,s=0,f=0;
 
 
         while(s<k){
-        for(int i=l=t=f;i<r;++i){
+        for(int i=l=t=f;i<r&&f<r&&t<r;++i){
 
             if(a[i]==x) {
                 if(t>l&&f<r) {
@@ -154,14 +182,13 @@ public class Arrays {
                 }
             }
             else{
-                ++f;++t;}
+                --f;++t;}
             }
 
-        }
+        }*/
 
-        return a;
 
-    }
+
 
 
 
